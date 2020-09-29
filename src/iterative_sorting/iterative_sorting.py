@@ -1,26 +1,83 @@
+test_arr = [2, 4, 1, 3, 5]
+
 # TO-DO: Complete the selection_sort() function below
 def selection_sort(arr):
     # loop through n-1 elements
-    for i in range(0, len(arr) - 1):
-        cur_index = i
-        smallest_index = cur_index
-        # TO-DO: find next smallest element
-        # (hint, can do in 3 loc)
-        # Your code here
+    
+    curr_index = 0
+    smallest_index = 0
+
+    while curr_index < len(arr):
+        print('ran') 
+        for i in range(0, len(arr) - 1):
+            temp_curr = None
+            temp_smallest = None
+            #cur_index = i
+            
+            # TO-DO: find next smallest element
+            # (hint, can do in 3 loc)
+            # Your code here
+            
+            if arr[smallest_index] > arr[i + 1]:
+                smallest_index = i + 1
+            """ print('smallest index', smallest_index)
+            print('smallest value', arr[smallest_index]) """
+
+            if arr[curr_index] != arr[smallest_index]:
+                temp_curr = arr[curr_index]
+                temp_smallest = arr[smallest_index]
+
+                arr[curr_index] = temp_smallest
+                arr[smallest_index] = temp_curr
+            
+        curr_index += 1
+        print(curr_index)
+        smallest_index = curr_index
 
 
-        # TO-DO: swap
-        # Your code here
 
+            # TO-DO: swap
+            # Your code here
+    print(arr)
     return arr
 
+selection_sort(test_arr)
 
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort(arr):
     # Your code here
+    sort_continue = True
+    swaps = 0
+    while sort_continue == True:
+        for element in range(len(arr) - 1):
+            
+            temp_left = None
+            temp_right = None
 
+            if arr[element + 1] < arr[element]:
+                temp_left = arr[element]
+                temp_right = arr[element + 1]
 
+                arr[element + 1] = temp_left
+                arr[element] = temp_right
+
+                swaps += 1
+               
+            
+        if swaps > 0:
+            sort_continue = True
+            swaps = 0
+        else:
+            sort_continue = False
+        
     return arr
+    
+
+
+
+
+
+    #return arr
 
 '''
 STRETCH: implement the Counting Sort function below
