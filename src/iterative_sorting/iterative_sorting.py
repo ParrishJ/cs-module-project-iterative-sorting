@@ -4,6 +4,7 @@ test_range = 10000
 test_size = 10000
 
 test_arr = random.sample(range(test_range), test_size)
+new_arr = [1, 5, 8, 4, 2, 9, 6, 0, 3, 7]
 #print(test_arr)
 
 
@@ -110,7 +111,35 @@ buckets.
 What is the time and space complexity of the counting sort algorithm?
 '''
 def counting_sort(arr, maximum=None):
-    # Your code here
+
+    sorted_arr = list()
+    error_str = "Error, negative numbers not allowed in Count Sort"
+
+    if arr == []:
+        return sorted_arr
+    
+    else:
+        instance_list = list()
+        max_value = max(arr)
+
+        for _ in range(0, max_value + 1):
+            instance_list.append(0)
+
+        for value in arr:
+            if value < 0:
+                return error_str
+
+            if value > -1:
+                instance_list[value] = instance_list[value] + 1
+
+        for i in range(len(instance_list)):
+            if instance_list[i] == 0:
+                continue
+            else:
+                for _ in range(instance_list[i]):
+                    sorted_arr.append(i)
+
+        return sorted_arr
 
 
-    return arr
+
