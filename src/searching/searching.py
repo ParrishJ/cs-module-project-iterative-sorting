@@ -26,7 +26,6 @@ def binary_search(arr, target):
 
         middle_index = (first + last) // 2
         
-
         if target == arr[middle_index]:
             return middle_index
 
